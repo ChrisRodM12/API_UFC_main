@@ -1,0 +1,51 @@
+<%- include('../layouts/header', {title: 'Crear un nuevo Luchador'}); -%>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="alert alert-success text-center">Crear un nuevo Luchador</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <form action="/luchador" method="post" class="row">
+                <div class="col-6">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" name="name" id="name" class="form-control" required>
+                </div>
+                <div class="col-6">
+                    <label for="lastname" class="form-label">Lastname</label>
+                    <input type="text" name="lastname" id="lastname" class="form-control" required>
+                </div>
+                <div class="col-6">
+                    <label for="division" class="form-label">Division</label>
+                    <input type="text" name="division" id="division" class="form-control" required>
+                </div>
+                <div class="col-6">
+                    <label for="style" class="form-label">Fighting Style</label>
+                    <input type="text" name="style" id="style" class="form-control" required>
+                </div>
+                <div class="col-6">
+                    <label for="localization" class="form-label">Localization</label>
+                    <input type="text" name="localization" id="localization" class="form-control" required>
+                </div>
+                <div class="col-6">
+                    <label for="id" class="form-label">ID</label>
+                    <input type="text" name="id" id="id" class="form-control" required>
+                </div>
+                <div class="col-12 d-grid mt-4">
+                    <button type="submit" class="btn btn-outline-success">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 d-grid mt-4">
+            <a href="/luchador" class="btn btn-outline-secondary">
+                Regresar a la lista de Luchadores
+            </a>
+        </div>
+    </div>
+</div>
+
+<%- include('../layouts/footer'); -%>

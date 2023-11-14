@@ -1,0 +1,69 @@
+<%- include('../layouts/header', {title: 'Lista de Luchadores'}); -%>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="alert alert-success text-center">Lista de Luchadores</h1>
+        </div>
+    </div>
+    <div class="row">
+        <form class="row g-3 align-items-center my-3" action="/luchador" method="get">
+            <div class="col-auto">
+                <label for="search" class="col-form-label">Search</label>
+            </div>
+            <div class="col-auto">
+                <input type="text" id="search" name="search" class="form-control" value="<%=search%>">
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-outline-secondary">Search</button>
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Lastname</th>
+                        <th scope="col">Division</th>
+                        <th scope="col">Fighting Style</th>
+                        <th scope="col">Localization</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% luchador.map( luchador => { %>
+                        <tr>
+                            <th scope="row"><%= luchador.id %></th>
+                            <td><%= luchador.name %></td>
+                            <td><%= luchador.lastname %></td>
+                            <td><%= luchador.division %></td>
+                            <td><%= luchador.style %></td>
+                            <td><%= luchador.localization %></td>
+                            <td>
+                                <form 
+                                action="/luchador/delete/<%= luchador.id %>" 
+                                method="post"
+                                onsubmit="return confirm('Are you sure you want to delete this luchador?');"
+                                >
+                                    <button type="submit" class="btn btn-outline-danger">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 d-grid">
+            <a href="/luchador/create" class="btn btn-outline-secondary">
+                Crear un nuevo Luchador
+            </a>
+        </div>
+    </div>
+</div>
+
+<%- include('../layouts/footer'); -%>
